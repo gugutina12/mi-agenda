@@ -43,12 +43,12 @@ header h1{font-size:30px}
 #hoyTxt{opacity:.85;font-weight:600;margin-top:4px}
 #sync{font-size:13px;font-weight:700;padding:6px 12px;border-radius:99px;background:rgba(255,255,255,.14);white-space:nowrap}
 #sync.err{background:#d6405a}
-nav{position:fixed;left:0;right:0;bottom:0;z-index:5;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));background:var(--card);border-top:1px solid var(--line);padding:6px 6px calc(6px + env(safe-area-inset-bottom))}
-nav a{display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 4px;border-radius:12px;color:var(--mut);text-decoration:none;font-weight:700;font-size:13px;min-height:52px;justify-content:center}
+nav{position:fixed;left:0;right:0;bottom:0;z-index:5;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));background:var(--card);border-top:1px solid var(--line);padding:6px 6px calc(6px + env(safe-area-inset-bottom))}
+nav a{display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 2px;border-radius:12px;color:var(--mut);text-decoration:none;font-weight:700;font-size:12px;min-height:52px;justify-content:center}
 nav a svg{width:22px;height:22px}
 nav a.on{color:var(--band);background:var(--soft)}
 :root[data-theme=dark] nav a.on,:root:not([data-theme=light]) nav a.on{color:light-dark(var(--band),#7fd3e3)}
-@media(min-width:760px){body{padding-bottom:30px}nav{position:sticky;top:0;bottom:auto;max-width:none;grid-template-columns:repeat(4,max-content);justify-content:center;gap:6px;border-top:0;border-bottom:1px solid var(--line)}nav a{flex-direction:row;font-size:15px;padding:8px 18px;gap:8px;min-height:44px}}
+@media(min-width:760px){body{padding-bottom:30px}nav{position:sticky;top:0;bottom:auto;max-width:none;grid-template-columns:repeat(5,max-content);justify-content:center;gap:6px;border-top:0;border-bottom:1px solid var(--line)}nav a{flex-direction:row;font-size:15px;padding:8px 18px;gap:8px;min-height:44px}}
 main{max-width:1000px;margin:0 auto;padding:22px max(4vw,14px)}
 section[hidden]{display:none}
 .row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
@@ -119,6 +119,18 @@ label{display:block;font-weight:700;font-size:14px;margin:12px 0 5px}
 .tag{font-size:12px;font-weight:800;color:var(--band);background:var(--soft);border-radius:99px;padding:3px 10px;align-self:flex-start}
 :root:not([data-theme=light]) .tag{color:light-dark(var(--band),#7fd3e3)}
 .empty-st{padding:30px 16px;text-align:center;color:var(--mut);border:2px dashed var(--line);border-radius:18px}
+.ramo{margin-top:16px}
+.rh{display:grid;grid-template-columns:minmax(0,1fr) auto 44px;gap:10px;align-items:center}
+.rh input{font:700 19px Sora,Nunito,sans-serif;border-color:transparent;background:transparent;padding-left:4px}
+.rh input:hover,.rh input:focus{border-color:var(--line)}
+.avg{font:700 26px Sora,sans-serif;padding:6px 14px;border-radius:14px;background:var(--soft);white-space:nowrap}
+.avg.ok{background:light-dark(#dff4ea,#0f3a2a);color:var(--ok)}.avg.bad{background:light-dark(#fbe3e8,#3a1620);color:var(--no)}
+.er{display:grid;grid-template-columns:minmax(0,1fr) 70px 78px 44px;gap:6px;align-items:center;margin-top:6px}
+.er.hd{font-size:13px;font-weight:800;color:var(--mut);margin-top:12px}
+.er input{padding:9px 10px}
+.er input.g{text-align:center;font-weight:800}
+.rsum{margin-top:12px;padding:12px 14px;border-radius:12px;background:var(--soft);font-weight:600;font-size:15px}
+.rsum .w{color:var(--no)}
 /* RESUMEN */
 .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:12px;margin:14px 0 20px}
 .kpi{border-radius:18px;padding:16px;background:var(--soft)}
@@ -163,12 +175,14 @@ label{display:block;font-weight:700;font-size:14px;margin:12px 0 5px}
 <nav>
 <a href="#hoy" data-v="hoy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>Rutina</a>
 <a href="#calendario" data-v="calendario"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Calendario</a>
+<a href="#universidad" data-v="universidad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5M22 9v6"/></svg>Universidad</a>
 <a href="#notas" data-v="notas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 3h9l4 4v14H6z"/><path d="M9 12h7M9 16h5"/></svg>Notas</a>
 <a href="#resumen" data-v="resumen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 20V11M12 20V5M19 20v-6"/></svg>Resumen</a>
 </nav>
 <main id="views">
 <section id="v-hoy"></section>
 <section id="v-calendario" hidden></section>
+<section id="v-universidad" hidden></section>
 <section id="v-notas" hidden></section>
 <section id="v-resumen" hidden></section>
 </main>
@@ -208,18 +222,18 @@ const today=()=>ymd(new Date());
 const diff=(a,b)=>Math.round((parse(a)-parse(b))/864e5);
 
 const HAB0=['Hacer mi cama','Lavarme los dientes','Lavarme la cara','Barrer mi pieza y pasillo','Leer 30 minutos','Bañarme','Ducharme','Desayuno','Almuerzo','Cena','Limpiar arena de los gatos','Estiramientos','Tiempo con Dios'].map((n,i)=>({id:'h'+(i+1),n}));
-const FER={'2027-01-01':'Año Nuevo','2027-03-26':'Viernes Santo','2027-03-27':'Sábado Santo','2027-05-01':'Día del Trabajo','2027-05-21':'Glorias Navales','2027-06-21':'Día de los Pueblos Indígenas','2027-06-28':'San Pedro y San Pablo','2027-07-16':'Virgen del Carmen','2027-08-15':'Asunción de la Virgen','2027-09-17':'Feriado de Fiestas Patrias','2027-09-18':'Independencia Nacional','2027-09-19':'Glorias del Ejército','2027-10-11':'Encuentro de Dos Mundos','2027-10-31':'Iglesias Evangélicas y Protestantes','2027-11-01':'Día de Todos los Santos','2027-12-08':'Inmaculada Concepción','2027-12-25':'Navidad'};
+const FER={'2026-01-01':'Año Nuevo','2026-04-03':'Viernes Santo','2026-04-04':'Sábado Santo','2026-05-01':'Día del Trabajo','2026-05-21':'Glorias Navales','2026-06-21':'Día de los Pueblos Indígenas','2026-06-29':'San Pedro y San Pablo','2026-07-16':'Virgen del Carmen','2026-08-15':'Asunción de la Virgen','2026-09-18':'Independencia Nacional','2026-09-19':'Glorias del Ejército','2026-10-12':'Encuentro de Dos Mundos','2026-10-31':'Iglesias Evangélicas y Protestantes','2026-11-01':'Día de Todos los Santos','2026-12-08':'Inmaculada Concepción','2026-12-25':'Navidad','2027-01-01':'Año Nuevo','2027-03-26':'Viernes Santo','2027-03-27':'Sábado Santo','2027-05-01':'Día del Trabajo','2027-05-21':'Glorias Navales','2027-06-21':'Día de los Pueblos Indígenas','2027-06-28':'San Pedro y San Pablo','2027-07-16':'Virgen del Carmen','2027-08-15':'Asunción de la Virgen','2027-09-17':'Feriado de Fiestas Patrias','2027-09-18':'Independencia Nacional','2027-09-19':'Glorias del Ejército','2027-10-11':'Encuentro de Dos Mundos','2027-10-31':'Iglesias Evangélicas y Protestantes','2027-11-01':'Día de Todos los Santos','2027-12-08':'Inmaculada Concepción','2027-12-25':'Navidad'};
 const TYPES={eval:{n:'Evaluación',c:'#d6405a'},imp:{n:'Fecha importante',c:'#7b4fd6'},cita:{n:'Cita',c:'#2f6fdb'},cumple:{n:'Cumpleaños',c:'#e38b00'},partido:{n:'Partido',c:'#139a68'}};
 const CATS=['Personal','Estudio','Ideas','Pendientes'];
 
-const S={habits:null,events:[],notes:[],logs:{}};
+const S={habits:null,events:[],notes:[],logs:{},uni:{min:4,ramos:[]}};
 const habits=()=>S.habits||HAB0;
 
 /* ---------- guardado: nube (db) con respaldo local ---------- */
 const LS='miagenda-v1';let col=null,mode='local';const dirty={},timers={},busy={};
 const loadLocal=()=>{try{const j=JSON.parse(localStorage.getItem(LS)||'null');if(j)Object.assign(S,j)}catch(e){}};
 const saveLocal=()=>{try{localStorage.setItem(LS,JSON.stringify(S))}catch(e){}};
-const body=k=>k==='meta'?{habits:habits()}:k==='events'?{list:S.events}:k==='notes'?{list:S.notes}:{days:S.logs[k.slice(4)]||{}};
+const body=k=>k==='meta'?{habits:habits()}:k==='events'?{list:S.events}:k==='notes'?{list:S.notes}:k==='uni'?{min:S.uni.min,ramos:S.uni.ramos}:{days:S.logs[k.slice(4)]||{}};
 function save(k){saveLocal();if(mode!=='db')return;dirty[k]=1;setSync('saving');clearTimeout(timers[k]);timers[k]=setTimeout(()=>flush(k),600)}
 async function flush(k){
   if(busy[k]){busy[k]=2;return}
@@ -232,14 +246,14 @@ async function flush(k){
 function setSync(s){const el=$('#sync');el.className=s==='err'?'err':'';el.textContent={ok:'Sincronizado',saving:'Guardando…',load:'Cargando…',slow:'Sin conexión, reintentando',err:'No se pudo guardar',local:'Guardado en este equipo',offline:'Sin internet: se sincroniza al volver'}[s]||s}
 
 /* ---------- navegación ---------- */
-const VIEWS=['hoy','calendario','notas','resumen'];let view='hoy';
+const VIEWS=['hoy','calendario','universidad','notas','resumen'];let view='hoy';
 function route(){const h=location.hash.slice(1);view=VIEWS.includes(h)?h:'hoy';for(const v of VIEWS)$('#v-'+v).hidden=v!==view;document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('on',a.dataset.v===view));render(true)}
 let needR=false;
 function render(force){
   const a=document.activeElement;
   if(!force&&a&&a.matches('#views input,#views textarea,#views select')){needR=true;return}
   $('#hoyTxt').textContent=longDate(new Date()).replace(/^./,c=>c.toUpperCase());
-  ({hoy:rHoy,calendario:rCal,notas:rNotas,resumen:rRes})[view]();
+  ({hoy:rHoy,calendario:rCal,universidad:rUni,notas:rNotas,resumen:rRes})[view]();
 }
 document.addEventListener('focusout',()=>{if(needR){needR=false;setTimeout(()=>render(),0)}});
 
@@ -277,15 +291,15 @@ function habEditor(){const hs=habits();return`<div class="card"><h3 style="font-
 function setHabits(a){S.habits=a;save('meta')}
 
 /* ---------- CALENDARIO ---------- */
-const now=new Date();let cy=now.getFullYear()<2027?2027:now.getFullYear(),cm=now.getFullYear()<2027?0:now.getMonth(),sel=today()<'2027-01-01'?'2027-01-01':today();
+const now=new Date();let cy=now.getFullYear()<2026?2026:now.getFullYear(),cm=now.getFullYear()<2026?0:now.getMonth(),sel=today()<'2026-01-01'?'2026-01-01':today();
 function rCal(){
   const first=new Date(cy,cm,1),n=new Date(cy,cm+1,0).getDate(),off=dow(first),t=today();
   let cells='';for(let i=0;i<off;i++)cells+='<div class="cd empty"></div>';
   for(let d=1;d<=n;d++){const ds=cy+'-'+pad(cm+1)+'-'+pad(d),ev=eventsOn(ds);
     cells+=`<button class="cd${ds===t?' today':''}${ds===sel?' sel':''}${FER[ds]?' fer':''}${dow(new Date(cy,cm,d))>4?' we':''}" data-act="day" data-d="${ds}" aria-label="${d} de ${MES[cm]}${FER[ds]?', feriado':''}${ev.length?', '+ev.length+' evento(s)':''}"><span class="n">${d}</span><span class="dots">${ev.slice(0,4).map(e=>`<i style="background:${TYPES[e.type]?.c||'#888'}"></i>`).join('')}</span></button>`}
-  const sev=eventsOn(sel),up=upcoming(6);let yo='';for(let y=2027;y<=2040;y++)yo+=`<option ${y===cy?'selected':''}>${y}</option>`;
+  const sev=eventsOn(sel),up=upcoming(6);let yo='';for(let y=2026;y<=2040;y++)yo+=`<option ${y===cy?'selected':''}>${y}</option>`;
   $('#v-calendario').innerHTML=`<div class="calWrap"><div>
-  <div class="calHead"><button class="ico" data-act="cm" data-n="-1" ${cy===2027&&cm===0?'disabled':''} aria-label="Mes anterior">‹</button><h2>${MES[cm]}</h2><select id="cyPick" aria-label="Año">${yo}</select><button class="ico" data-act="cm" data-n="1" aria-label="Mes siguiente">›</button></div>
+  <div class="calHead"><button class="ico" data-act="cm" data-n="-1" ${cy===2026&&cm===0?'disabled':''} aria-label="Mes anterior">‹</button><h2>${MES[cm]}</h2><select id="cyPick" aria-label="Año">${yo}</select><button class="ico" data-act="cm" data-n="1" aria-label="Mes siguiente">›</button></div>
   <div class="grid">${['L','M','M','J','V','S','D'].map(w=>`<div class="wd">${w}</div>`).join('')}${cells}</div>
   <div class="legend">${Object.values(TYPES).map(x=>`<span><i style="background:${x.c}"></i>${x.n}</span>`).join('')}<span><i style="background:var(--no);border-radius:2px"></i>Número rojo: feriado</span></div>
   </div><div style="display:grid;gap:16px;align-content:start">
@@ -327,6 +341,33 @@ function noteForm(n){n=n||{cat:ncat==='Todas'?'Personal':ncat};const cats=[...ne
   <label for="nb">Texto</label><textarea id="nb" name="b" placeholder="Escribe aquí…">${esc(n.body)}</textarea>
   <div class="mb">${n.id?'<button type="button" class="btn ghost" data-act="delNote" style="color:var(--no)">Eliminar</button>':''}<span class="sp"></span><button type="button" class="btn ghost" data-act="close">Cancelar</button><button class="btn pri">Guardar</button></div></form>`);
 }
+
+/* ---------- UNIVERSIDAD ---------- */
+const g1=v=>{const n=parseFloat(String(v).replace(',','.'));return isNaN(n)?null:n};
+function ramoCalc(r){let wp=0,ws=0,tot=0;for(const e of r.evals){const p=g1(e.pct)||0;tot+=p;const g=g1(e.grade);if(g!=null){wp+=p;ws+=g*p}}
+  const min=S.uni.min||4,avg=wp?ws/wp:null,rem=Math.max(0,Math.min(100,tot)-wp),need=rem>0?(min*Math.min(100,tot)-ws)/rem:null;return{avg,wp,tot,need,rem,min}}
+const f1=v=>v==null?'—':(Math.round(v*10)/10).toFixed(1);
+function ramoSum(r){const c=ramoCalc(r);if(!r.evals.length)return'Agrega las evaluaciones del ramo con su porcentaje.';const out=[];
+  if(Math.round(c.tot)!==100)out.push(`<span class="w">Las ponderaciones suman ${Math.round(c.tot)}% (deberían sumar 100%).</span>`);
+  if(c.wp===0)out.push('Aún no tienes notas en este ramo.');
+  else if(c.rem<=0)out.push(`Nota final: <b>${f1(c.avg)}</b> · ${c.avg>=c.min?'Aprobado':'Reprobado'}`);
+  else{out.push(`Llevas evaluado el ${Math.round(c.wp)}% del ramo.`);
+    out.push(c.need<=1?`Con lo que tienes ya apruebas con ${f1(c.min)}.`:c.need>7?`Necesitarías más de 7.0 en el ${Math.round(c.rem)}% que falta para llegar a ${f1(c.min)}.`:`Para aprobar con ${f1(c.min)} necesitas <b>${f1(Math.ceil(c.need*10)/10)}</b> de promedio en el ${Math.round(c.rem)}% que falta.`)}
+  return out.join(' ')}
+function avgCls(r){const c=ramoCalc(r);return c.avg==null?'':c.avg>=c.min?'ok':'bad'}
+function rUni(){const R=S.uni.ramos,cs=R.map(ramoCalc).filter(c=>c.avg!=null);
+  const gen=cs.length?cs.reduce((a,c)=>a+c.avg,0)/cs.length:null,okN=cs.filter(c=>c.avg>=c.min).length;
+  $('#v-universidad').innerHTML=`<div class="row"><h2 style="font-size:clamp(24px,5vw,34px);flex:1">Universidad</h2><button class="btn pri" data-act="newRamo">+ Agregar ramo</button></div>
+  <div class="row small mut" style="margin-top:8px"><span>Escala de 1.0 a 7.0. Nota para aprobar:</span><input id="uMin" inputmode="decimal" value="${f1(S.uni.min||4)}" style="width:80px;text-align:center" aria-label="Nota para aprobar"></div>
+  ${R.length?`<div class="kpis"><div class="kpi big"><div class="l">Promedio general</div><div class="v">${f1(gen)}</div><span class="small" style="opacity:.85">promedio de tus ramos con notas</span></div>
+    <div class="kpi"><div class="l">Ramos aprobando</div><div class="v">${okN}<span style="font-size:22px"> de ${cs.length}</span></div><span class="small mut">con las notas que llevas</span></div></div>`:''}
+  ${R.map(r=>`<div class="card ramo" id="r-${r.id}"><div class="rh"><input value="${esc(r.name)}" data-rn="${r.id}" aria-label="Nombre del ramo" placeholder="Nombre del ramo"><span class="avg ${avgCls(r)}" id="ra-${r.id}">${f1(ramoCalc(r).avg)}</span><button class="ico" data-act="delRamo" data-r="${r.id}" aria-label="Eliminar ramo" style="color:var(--no)">×</button></div>
+    ${r.evals.length?`<div class="er hd"><span>Evaluación</span><span>%</span><span>Nota</span><span></span></div>`:''}
+    ${r.evals.map(e=>`<div class="er"><input value="${esc(e.name)}" data-ef="${r.id}|${e.id}|name" placeholder="Ej.: Prueba 1" aria-label="Evaluación"><input value="${esc(e.pct)}" inputmode="decimal" data-ef="${r.id}|${e.id}|pct" placeholder="%" aria-label="Porcentaje"><input class="g" value="${esc(e.grade)}" inputmode="decimal" data-ef="${r.id}|${e.id}|grade" placeholder="—" aria-label="Nota"><button class="ico" data-act="delEval" data-r="${r.id}" data-e="${e.id}" aria-label="Eliminar evaluación">×</button></div>`).join('')}
+    <button class="btn ghost" data-act="newEval" data-r="${r.id}" style="margin-top:10px">+ Agregar evaluación</button>
+    <div class="rsum" id="rs-${r.id}">${ramoSum(r)}</div></div>`).join('')||'<div class="empty-st" style="margin-top:16px">Agrega tus ramos y, dentro de cada uno, sus evaluaciones con el porcentaje y la nota. La app calcula tu promedio y cuánto necesitas para aprobar.</div>'}`;
+}
+function updRamo(r){const a=$('#ra-'+r.id),s2=$('#rs-'+r.id);if(a){a.textContent=f1(ramoCalc(r).avg);a.className='avg '+avgCls(r)}if(s2)s2.innerHTML=ramoSum(r)}
 
 /* ---------- RESUMEN ---------- */
 let ry=now.getFullYear(),rm=now.getMonth();
@@ -384,7 +425,7 @@ document.addEventListener('click',e=>{
   else if(a==='editH'){editH=!editH;render(true)}
   else if(a==='mv'){const hs=[...habits()],i=hs.findIndex(h=>h.id===b.dataset.h),j=i+ +b.dataset.n;if(j<0||j>=hs.length)return;[hs[i],hs[j]]=[hs[j],hs[i]];setHabits(hs);render(true)}
   else if(a==='delH')arm(b,'h'+b.dataset.h,()=>{setHabits(habits().filter(h=>h.id!==b.dataset.h));render(true)});
-  else if(a==='cm'){cm+= +b.dataset.n;if(cm<0){cm=11;cy--}if(cm>11){cm=0;cy++}if(cy<2027){cy=2027;cm=0}const t=today();sel=mk(t)===cy+'-'+pad(cm+1)?t:cy+'-'+pad(cm+1)+'-01';render(true)}
+  else if(a==='cm'){cm+= +b.dataset.n;if(cm<0){cm=11;cy--}if(cm>11){cm=0;cy++}if(cy<2026){cy=2026;cm=0}const t=today();sel=mk(t)===cy+'-'+pad(cm+1)?t:cy+'-'+pad(cm+1)+'-01';render(true)}
   else if(a==='day'){sel=b.dataset.d;render(true)}
   else if(a==='newEv')evForm();
   else if(a==='editEv')evForm(S.events.find(x=>x.id===b.dataset.id));
@@ -395,6 +436,10 @@ document.addEventListener('click',e=>{
   else if(a==='ncat'){ncat=b.dataset.c;rNotas()}
   else if(a==='rm'){rm+= +b.dataset.n;if(rm<0){rm=11;ry--}if(rm>11){rm=0;ry++}render(true)}
   else if(a==='close')closeModal();
+  else if(a==='newRamo'){const id=uid();S.uni.ramos.push({id,name:'',evals:[]});save('uni');render(true);setTimeout(()=>{const i=document.querySelector(`[data-rn="${id}"]`);if(i){i.focus();i.scrollIntoView({block:'center'})}},0)}
+  else if(a==='delRamo')arm(b,'r'+b.dataset.r,()=>{S.uni.ramos=S.uni.ramos.filter(x=>x.id!==b.dataset.r);save('uni');render(true)});
+  else if(a==='newEval'){const r2=S.uni.ramos.find(x=>x.id===b.dataset.r);if(!r2)return;const id=uid();r2.evals.push({id,name:'',pct:'',grade:''});save('uni');render(true);setTimeout(()=>{const i=document.querySelector(`[data-ef="${r2.id}|${id}|name"]`);if(i)i.focus()},0)}
+  else if(a==='delEval')arm(b,'v'+b.dataset.e,()=>{const r2=S.uni.ramos.find(x=>x.id===b.dataset.r);if(!r2)return;r2.evals=r2.evals.filter(x=>x.id!==b.dataset.e);save('uni');render(true)});
   else if(a==='acct'){const u=window.firebase&&firebase.apps.length?firebase.auth().currentUser:null;openModal(u?`<h2>Tu cuenta</h2><p>${esc(u.email)}</p><p class="mut small">Tus datos se guardan en esta cuenta y se sincronizan entre tus equipos.</p><div class="mb"><span class="sp"></span><button type="button" class="btn ghost" data-act="close">Cerrar</button><button type="button" class="btn danger" data-act="logout">Cerrar sesión</button></div>`:`<h2>Guardado en este equipo</h2><p class="mut">La sincronización todavía no está configurada.</p><div class="mb"><span class="sp"></span><button type="button" class="btn pri" data-act="close">Entendido</button></div>`)}
   else if(a==='logout'){firebase.auth().signOut().then(()=>{try{localStorage.removeItem(LS)}catch(e){}location.reload()})}
 });
@@ -404,11 +449,17 @@ document.addEventListener('submit',e=>{e.preventDefault();const f=e.target;
       $('#lerr').textContent=c.includes('email-already')?'Ese correo ya tiene cuenta: toca «Entrar».':c.includes('weak-password')?'La contraseña debe tener al menos 6 caracteres.':c.includes('invalid-email')?'Revisa el correo.':c.includes('network')?'Sin conexión a internet.':'Correo o contraseña incorrectos.'});return}
   if(f.id==='addH'){const n=f.n.value.trim();if(!n)return;setHabits([...habits(),{id:'h'+uid(),n}]);render(true);setTimeout(()=>{const i=$('#addH input');if(i)i.focus()},0)}
   else if(f.id==='fEv'){const id=f.dataset.id,e2={id:id||uid(),title:f.t.value.trim(),date:f.d.value,time:f.h.value,type:f.ty.value,yearly:f.y.checked,note:f.no.value.trim()};if(!e2.title||!e2.date)return;
-    S.events=id?S.events.map(x=>x.id===id?e2:x):[...S.events,e2];save('events');sel=e2.date;cy=+e2.date.slice(0,4);cm=+e2.date.slice(5,7)-1;if(cy<2027){cy=2027;cm=0}closeModal();render(true)}
+    S.events=id?S.events.map(x=>x.id===id?e2:x):[...S.events,e2];save('events');sel=e2.date;cy=+e2.date.slice(0,4);cm=+e2.date.slice(5,7)-1;if(cy<2026){cy=2026;cm=0}closeModal();render(true)}
   else if(f.id==='fNote'){const id=f.dataset.id,n={id:id||uid(),title:f.t.value.trim(),cat:f.c.value.trim()||'Personal',body:f.b.value,upd:Date.now()};if(!n.title&&!n.body.trim())return;
     S.notes=id?S.notes.map(x=>x.id===id?n:x):[n,...S.notes];save('notes');closeModal();render(true)}
 });
 document.addEventListener('change',e=>{const t=e.target;
+  if(t.dataset.rn){const r2=S.uni.ramos.find(x=>x.id===t.dataset.rn);if(r2){r2.name=t.value.trim();save('uni')}return}
+  if(t.dataset.ef){const[rid,eid,fl]=t.dataset.ef.split('|'),r2=S.uni.ramos.find(x=>x.id===rid),ev=r2&&r2.evals.find(x=>x.id===eid);if(!ev)return;
+    let v=t.value.trim();if(fl==='grade'&&v!==''){let n=g1(v);if(n==null){v=''}else{if(n>=10&&n<=70)n=n/10;n=Math.min(7,Math.max(1,n));v=n.toFixed(1)}t.value=v}
+    if(fl==='pct'&&v!==''){const n=g1(v);v=n==null?'':String(Math.max(0,Math.min(100,n)));t.value=v}
+    ev[fl]=v;save('uni');updRamo(r2);return}
+  if(t.id==='uMin'){const n=g1(t.value);if(n!=null&&n>=1&&n<=7){S.uni.min=n;save('uni');S.uni.ramos.forEach(updRamo)}t.value=f1(S.uni.min);return}
   if(t.dataset.ren){const v=t.value.trim();if(!v)return;setHabits(habits().map(h=>h.id===t.dataset.ren?{...h,n:v}:h))}
   else if(t.id==='hdPick'&&t.value){hd=t.value;render(true)}
   else if(t.id==='cyPick'){cy=+t.value;sel=cy+'-'+pad(cm+1)+'-01';render(true)}
@@ -435,12 +486,14 @@ if(FB_CONFIG&&window.firebase){
         if(k==='meta')S.habits=Array.isArray(b.habits)?b.habits:null;
         else if(k==='events')S.events=Array.isArray(b.list)?b.list:[];
         else if(k==='notes')S.notes=Array.isArray(b.list)?b.list:[];
+        else if(k==='uni')S.uni={min:+b.min||4,ramos:Array.isArray(b.ramos)?b.ramos:[]};
         else if(k.startsWith('log-'))S.logs[k.slice(4)]=b.days||{};}
       if(!snap.metadata.fromCache){clearTimeout(tm);
         if(first){first=false;const have=new Set(snap.docs.map(x=>x.id));
           if(S.habits&&!have.has('meta'))save('meta');
           if(S.events.length&&!have.has('events'))save('events');
           if(S.notes.length&&!have.has('notes'))save('notes');
+          if(S.uni.ramos.length&&!have.has('uni'))save('uni');
           for(const k in S.logs)if(!have.has('log-'+k)&&Object.keys(S.logs[k]).length)save('log-'+k);}
         if(!Object.keys(dirty).length)setSync('ok');}
       else if(!navigator.onLine)setSync('offline');
